@@ -721,19 +721,30 @@ export default function LLMDiagnosticSystem() {
               </div>
             )}
 
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <div className="grid md:grid-cols-3 gap-4 text-sm">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600">{maxScore}</div>
-                  <div className="text-[#666666]">適性スコア</div>
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-lg border">
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center bg-white p-4 rounded-lg shadow-sm">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">{maxScore}</div>
+                  <div className="text-sm font-medium text-[#666666]">適性スコア</div>
+                  <div className="text-xs text-[#999999] mt-1">100点満点中</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">C級</div>
-                  <div className="text-[#666666]">現在のランク</div>
+                <div className="text-center bg-white p-4 rounded-lg shadow-sm">
+                  <div className="text-3xl font-bold text-green-600 mb-2">
+                    {maxScore >= 90 ? "エキスパート" :
+                     maxScore >= 70 ? "上級者" :
+                     maxScore >= 50 ? "中級者" :
+                     maxScore >= 30 ? "初級者" : "入門者"}
+                  </div>
+                  <div className="text-sm font-medium text-[#666666]">現在のレベル</div>
+                  <div className="text-xs text-[#999999] mt-1">AI導入成熟度</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-orange-600">2-6ヶ月</div>
-                  <div className="text-[#666666]">推奨期間</div>
+                <div className="text-center bg-white p-4 rounded-lg shadow-sm">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">
+                    {recommendedApproach === "PoC開発" ? "2-4ヶ月" :
+                     recommendedApproach === "AI内製化" ? "6-12ヶ月" : "3-6ヶ月"}
+                  </div>
+                  <div className="text-sm font-medium text-[#666666]">推奨期間</div>
+                  <div className="text-xs text-[#999999] mt-1">導入完了まで</div>
                 </div>
               </div>
             </div>
@@ -758,8 +769,16 @@ export default function LLMDiagnosticSystem() {
                 <div className="h-80 flex items-center justify-center">
                   <HighResRadarChart data={calculateCategoryScores("internal")} color="#8b5cf6" title="内製化適性" />
                 </div>
-                <div className="mt-4 text-sm text-[#666666]">
-                  スコア: {Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5)}点
+                <div className="mt-4 p-3 bg-purple-50 rounded-lg border border-purple-200">
+                  <div className="text-2xl font-bold text-purple-700 mb-1">
+                    {Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5)}点
+                  </div>
+                  <div className="text-sm text-purple-600 font-medium">
+                    {Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5) >= 80 ? "エキスパート" :
+                     Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5) >= 60 ? "上級者" :
+                     Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5) >= 40 ? "中級者" :
+                     Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5) >= 20 ? "初級者" : "入門者"}
+                  </div>
                 </div>
               </div>
               <div className="text-center bg-white border-2 border-blue-200 rounded-xl p-6 shadow-lg">
@@ -770,8 +789,16 @@ export default function LLMDiagnosticSystem() {
                 <div className="h-80 flex items-center justify-center">
                   <HighResRadarChart data={calculateCategoryScores("poc")} color="#3b82f6" title="PoC適性" />
                 </div>
-                <div className="mt-4 text-sm text-[#666666]">
-                  スコア: {Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5)}点
+                <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                  <div className="text-2xl font-bold text-blue-700 mb-1">
+                    {Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5)}点
+                  </div>
+                  <div className="text-sm text-blue-600 font-medium">
+                    {Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5) >= 80 ? "エキスパート" :
+                     Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5) >= 60 ? "上級者" :
+                     Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5) >= 40 ? "中級者" :
+                     Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5) >= 20 ? "初級者" : "入門者"}
+                  </div>
                 </div>
               </div>
               <div className="text-center bg-white border-2 border-green-200 rounded-xl p-6 shadow-lg">
@@ -782,8 +809,16 @@ export default function LLMDiagnosticSystem() {
                 <div className="h-80 flex items-center justify-center">
                   <HighResRadarChart data={calculateCategoryScores("education")} color="#10b981" title="教育適性" />
                 </div>
-                <div className="mt-4 text-sm text-[#666666]">
-                  スコア: {Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5)}点
+                <div className="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
+                  <div className="text-2xl font-bold text-green-700 mb-1">
+                    {Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5)}点
+                  </div>
+                  <div className="text-sm text-green-600 font-medium">
+                    {Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5) >= 80 ? "エキスパート" :
+                     Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5) >= 60 ? "上級者" :
+                     Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5) >= 40 ? "中級者" :
+                     Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5) >= 20 ? "初級者" : "入門者"}
+                  </div>
                 </div>
               </div>
             </div>
@@ -863,8 +898,23 @@ export default function LLMDiagnosticSystem() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="h-96">
-              <RevenueChartWithGap companyProfile={companyProfile} />
+            <div className="bg-white p-6 rounded-lg shadow-sm border">
+              <div className="mb-6">
+                <h4 className="text-lg font-bold text-[#333333] mb-2">機会損失分析</h4>
+                <p className="text-sm text-[#666666] mb-4">
+                  AI導入による収益改善効果と、未実施による機会損失の比較分析
+                </p>
+              </div>
+              <div className="h-96">
+                <RevenueChartWithGap companyProfile={companyProfile} />
+              </div>
+              <div className="mt-4 p-4 bg-orange-50 border border-orange-200 rounded-lg">
+                <h5 className="font-bold text-orange-800 mb-2">重要ポイント</h5>
+                <p className="text-sm text-orange-700">
+                  未実施の場合、3年間で約2,400万円の機会損失が発生する可能性があります。
+                  早期導入により競合優位性を確保することが重要です。
+                </p>
+              </div>
             </div>
           </CardContent>
         </Card>
