@@ -24,7 +24,6 @@ import MasterSchedule from "@/components/master-schedule"
 import IndustryRanking from "@/components/industry-ranking"
 import RevenueChartWithGap from "@/components/revenue-chart-with-gap"
 import HighResRadarChart from "@/components/high-res-radar-chart"
-import GanttChart from "@/components/gantt-chart"
 
 interface CompanyProfile {
   industry: string
@@ -752,73 +751,111 @@ export default function LLMDiagnosticSystem() {
           </CardContent>
         </Card>
 
-        {/* 適性分析 */}
+        {/* 育成アプローチ分析 */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center text-2xl text-[#333333]">
-              <Radar className="mr-3 text-[#9B59B6]" />
-              適性分析（3つのアプローチ別）
+              <GraduationCap className="mr-3 text-[#27AE60]" />
+              育成アプローチ分析 - 組織成長戦略
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center bg-white border-2 border-purple-200 rounded-xl p-6 shadow-lg">
-                <h4 className="text-lg font-bold text-[#333333] mb-4 flex items-center justify-center">
-                  <div className="w-3 h-3 bg-purple-500 rounded-full mr-2"></div>
-                  AI内製化適性
-                </h4>
-                <div className="h-80 flex items-center justify-center">
-                  <HighResRadarChart data={calculateCategoryScores("internal")} color="#8b5cf6" title="内製化適性" />
-                </div>
-                <div className="mt-4 p-3 bg-purple-50 rounded-lg border border-purple-200">
-                  <div className="text-2xl font-bold text-purple-700 mb-1">
+            <div className="mb-6 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200">
+              <h4 className="text-lg font-bold text-[#333333] mb-3 flex items-center">
+                <div className="w-3 h-3 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mr-2"></div>
+                3つの成長パス比較分析
+              </h4>
+              <p className="text-sm text-[#666666] mb-4">
+                組織の現状と目標に基づいて、最適な成長アプローチを選択できるよう、3つの戦略パスを詳細に分析しています。
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-200 rounded-xl p-5 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="text-lg font-bold text-purple-800 flex items-center">
+                    <Settings className="mr-2 h-5 w-5" />
+                    AI内製化パス
+                  </h4>
+                  <div className="text-2xl font-bold text-purple-700">
                     {Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5)}点
                   </div>
-                  <div className="text-sm text-purple-600 font-medium">
-                    {Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5) >= 80 ? "エキスパート" :
-                     Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5) >= 60 ? "上級者" :
-                     Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5) >= 40 ? "中級者" :
-                     Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5) >= 20 ? "初級者" : "入門者"}
+                </div>
+                <div className="h-64 flex items-center justify-center mb-4">
+                  <HighResRadarChart data={calculateCategoryScores("internal")} color="#8b5cf6" title="内製化適性" />
+                </div>
+                <div className="space-y-3">
+                  <div className="p-3 bg-white/70 rounded-lg">
+                    <div className="text-sm font-medium text-purple-800 mb-1">適性レベル</div>
+                    <div className="text-sm text-purple-600">
+                      {Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5) >= 80 ? "🏆 エキスパート" :
+                       Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5) >= 60 ? "🥈 上級者" :
+                       Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5) >= 40 ? "🥉 中級者" :
+                       Math.round(calculateCategoryScores("internal").reduce((a, b) => a + b, 0) / 5) >= 20 ? "📚 初級者" : "🌱 入門者"}
+                    </div>
+                  </div>
+                  <div className="p-3 bg-white/70 rounded-lg">
+                    <div className="text-sm font-medium text-purple-800 mb-1">主な特徴</div>
+                    <div className="text-xs text-purple-600">独自技術開発・長期競争優位性確保</div>
                   </div>
                 </div>
               </div>
-              <div className="text-center bg-white border-2 border-blue-200 rounded-xl p-6 shadow-lg">
-                <h4 className="text-lg font-bold text-[#333333] mb-4 flex items-center justify-center">
-                  <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
-                  PoC適性
-                </h4>
-                <div className="h-80 flex items-center justify-center">
-                  <HighResRadarChart data={calculateCategoryScores("poc")} color="#3b82f6" title="PoC適性" />
-                </div>
-                <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
-                  <div className="text-2xl font-bold text-blue-700 mb-1">
+              
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-blue-200 rounded-xl p-5 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="text-lg font-bold text-blue-800 flex items-center">
+                    <Flask className="mr-2 h-5 w-5" />
+                    PoC開発パス
+                  </h4>
+                  <div className="text-2xl font-bold text-blue-700">
                     {Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5)}点
                   </div>
-                  <div className="text-sm text-blue-600 font-medium">
-                    {Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5) >= 80 ? "エキスパート" :
-                     Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5) >= 60 ? "上級者" :
-                     Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5) >= 40 ? "中級者" :
-                     Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5) >= 20 ? "初級者" : "入門者"}
+                </div>
+                <div className="h-64 flex items-center justify-center mb-4">
+                  <HighResRadarChart data={calculateCategoryScores("poc")} color="#3b82f6" title="PoC適性" />
+                </div>
+                <div className="space-y-3">
+                  <div className="p-3 bg-white/70 rounded-lg">
+                    <div className="text-sm font-medium text-blue-800 mb-1">適性レベル</div>
+                    <div className="text-sm text-blue-600">
+                      {Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5) >= 80 ? "🏆 エキスパート" :
+                       Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5) >= 60 ? "🥈 上級者" :
+                       Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5) >= 40 ? "🥉 中級者" :
+                       Math.round(calculateCategoryScores("poc").reduce((a, b) => a + b, 0) / 5) >= 20 ? "📚 初級者" : "🌱 入門者"}
+                    </div>
+                  </div>
+                  <div className="p-3 bg-white/70 rounded-lg">
+                    <div className="text-sm font-medium text-blue-800 mb-1">主な特徴</div>
+                    <div className="text-xs text-blue-600">段階的導入・リスク最小化・効果実証</div>
                   </div>
                 </div>
               </div>
-              <div className="text-center bg-white border-2 border-green-200 rounded-xl p-6 shadow-lg">
-                <h4 className="text-lg font-bold text-[#333333] mb-4 flex items-center justify-center">
-                  <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-                  教育プログラム適性
-                </h4>
-                <div className="h-80 flex items-center justify-center">
-                  <HighResRadarChart data={calculateCategoryScores("education")} color="#10b981" title="教育適性" />
-                </div>
-                <div className="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
-                  <div className="text-2xl font-bold text-green-700 mb-1">
+              
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-5 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="text-lg font-bold text-green-800 flex items-center">
+                    <GraduationCap className="mr-2 h-5 w-5" />
+                    教育プログラムパス
+                  </h4>
+                  <div className="text-2xl font-bold text-green-700">
                     {Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5)}点
                   </div>
-                  <div className="text-sm text-green-600 font-medium">
-                    {Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5) >= 80 ? "エキスパート" :
-                     Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5) >= 60 ? "上級者" :
-                     Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5) >= 40 ? "中級者" :
-                     Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5) >= 20 ? "初級者" : "入門者"}
+                </div>
+                <div className="h-64 flex items-center justify-center mb-4">
+                  <HighResRadarChart data={calculateCategoryScores("education")} color="#10b981" title="教育適性" />
+                </div>
+                <div className="space-y-3">
+                  <div className="p-3 bg-white/70 rounded-lg">
+                    <div className="text-sm font-medium text-green-800 mb-1">適性レベル</div>
+                    <div className="text-sm text-green-600">
+                      {Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5) >= 80 ? "🏆 エキスパート" :
+                       Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5) >= 60 ? "🥈 上級者" :
+                       Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5) >= 40 ? "🥉 中級者" :
+                       Math.round(calculateCategoryScores("education").reduce((a, b) => a + b, 0) / 5) >= 20 ? "📚 初級者" : "🌱 入門者"}
+                    </div>
+                  </div>
+                  <div className="p-3 bg-white/70 rounded-lg">
+                    <div className="text-sm font-medium text-green-800 mb-1">主な特徴</div>
+                    <div className="text-xs text-green-600">人材育成・組織変革・持続的成長基盤</div>
                   </div>
                 </div>
               </div>
@@ -890,35 +927,86 @@ export default function LLMDiagnosticSystem() {
           </CardContent>
         </Card>
 
-        {/* 収益成長予測 */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center text-2xl text-[#333333]">
-              <TrendingUp className="mr-3 text-[#84E67F]" />
-              収益成長予測（実施 vs 未実施）
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="bg-white p-6 rounded-lg shadow-sm border">
-              <div className="mb-6">
-                <h4 className="text-lg font-bold text-[#333333] mb-2">機会損失分析</h4>
-                <p className="text-sm text-[#666666] mb-4">
-                  AI導入による収益改善効果と、未実施による機会損失の比較分析
-                </p>
-              </div>
-              <div className="h-96">
+        {/* 収益予測・機会損失分析 */}
+        <div className="grid lg:grid-cols-2 gap-6">
+          <Card className="shadow-md">
+            <CardHeader className="pb-3">
+              <CardTitle className="flex items-center text-lg text-[#333333]">
+                <TrendingUp className="mr-2 h-5 w-5 text-[#84E67F]" />
+                収益成長予測
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="h-64 mb-4">
                 <RevenueChartWithGap companyProfile={companyProfile} />
               </div>
-              <div className="mt-4 p-4 bg-orange-50 border border-orange-200 rounded-lg">
-                <h5 className="font-bold text-orange-800 mb-2">重要ポイント</h5>
-                <p className="text-sm text-orange-700">
-                  未実施の場合、3年間で約2,400万円の機会損失が発生する可能性があります。
-                  早期導入により競合優位性を確保することが重要です。
-                </p>
+              <div className="grid grid-cols-2 gap-3 text-center">
+                <div className="p-3 bg-green-50 rounded-lg border border-green-200">
+                  <div className="text-lg font-bold text-green-700">+2,400万円</div>
+                  <div className="text-xs text-green-600">3年間効果増</div>
+                </div>
+                <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
+                  <div className="text-lg font-bold text-blue-700">6ヶ月</div>
+                  <div className="text-xs text-blue-600">投資回収期間</div>
+                </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+
+          <Card className="shadow-md">
+            <CardHeader className="pb-3">
+              <CardTitle className="flex items-center text-lg text-[#333333]">
+                <AlertTriangle className="mr-2 h-5 w-5 text-[#E74C3C]" />
+                機会損失分析
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border-l-4 border-red-400">
+                  <h5 className="font-bold text-red-800 mb-2 flex items-center">
+                    <AlertTriangle className="mr-2 h-4 w-4" />
+                    未実施リスク
+                  </h5>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-red-700">競合優位性の喪失</span>
+                      <span className="font-bold text-red-800">高リスク</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-red-700">業務効率低下継続</span>
+                      <span className="font-bold text-red-800">月間60万円</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-red-700">人材流出リスク</span>
+                      <span className="font-bold text-red-800">中リスク</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="p-4 bg-gradient-to-r from-blue-50 to-green-50 rounded-lg border-l-4 border-blue-400">
+                  <h5 className="font-bold text-blue-800 mb-2 flex items-center">
+                    <TrendingUp className="mr-2 h-4 w-4" />
+                    実施効果
+                  </h5>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-blue-700">業務効率向上</span>
+                      <span className="font-bold text-blue-800">40%改善</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-blue-700">従業員満足度</span>
+                      <span className="font-bold text-blue-800">25%向上</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-blue-700">競争優位性確保</span>
+                      <span className="font-bold text-blue-800">継続的</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
 
         {/* 投資計画・ロードマップ */}
         <Card>
@@ -981,7 +1069,6 @@ export default function LLMDiagnosticSystem() {
                   </div>
                 </div>
                 <MasterSchedule level="small" />
-                <GanttChart level="small" />
               </div>
             )}
 
@@ -1020,7 +1107,6 @@ export default function LLMDiagnosticSystem() {
                   </div>
                 </div>
                 <MasterSchedule level="medium" />
-                <GanttChart level="medium" />
               </div>
             )}
 
@@ -1062,7 +1148,6 @@ export default function LLMDiagnosticSystem() {
                   </div>
                 </div>
                 <MasterSchedule level="large" />
-                <GanttChart level="large" />
               </div>
             )}
           </CardContent>

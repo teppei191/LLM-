@@ -152,82 +152,52 @@ export default function IndustryRanking({ industry }: IndustryRankingProps) {
         </div>
       </div>
 
-      {/* 縦配置レイアウトに変更 */}
-      <div className="space-y-8">
-        {/* 成熟度レベル詳細 - マッキンゼー風の定義に変更 */}
+      {/* 横配置でモダンなレイアウトに変更 */}
+      <div className="grid lg:grid-cols-2 gap-8">
+        {/* 成熟度レベル詳細 - コンパクトなカード形式 */}
         <div className="bg-white border-2 border-[#27AE60]/20 rounded-xl p-6 shadow-lg">
           <h5 className="font-bold text-xl text-[#333333] mb-6 flex items-center">
             <div className="w-2 h-8 bg-gradient-to-b from-[#84E67F] to-[#27AE60] rounded mr-3"></div>
-            {ranking.name}デジタル変革成熟度レベル詳細
+            成熟度レベル
           </h5>
           <div className="space-y-4">
-            <div className="flex items-start p-4 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg border-l-4 border-purple-500">
-              <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full mr-4 mt-1 flex-shrink-0"></div>
-              <div>
-                <div className="font-bold text-purple-800 text-lg">S級 (90-100点): AI導入エキスパート</div>
-                <div className="text-purple-700 font-medium">AI戦略リーダー・業界変革者</div>
-                <div className="text-sm text-purple-600 mt-2">
-                  • 全社的なAI戦略とガバナンス体制が確立
-                  <br />• 独自のAIケイパビリティで競争優位を創出
-                  <br />• データドリブンな意思決定が組織文化として定着
-                  <br />• 業界エコシステム全体のデジタル変革を牽引
-                </div>
+            <div className="flex items-center p-3 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg border-l-4 border-purple-500">
+              <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full mr-3 flex-shrink-0"></div>
+              <div className="flex-1">
+                <div className="font-bold text-purple-800 text-sm">S級 (90-100点)</div>
+                <div className="text-xs text-purple-600">AI戦略リーダー・業界変革者</div>
               </div>
             </div>
 
-            <div className="flex items-start p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border-l-4 border-blue-500">
-              <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mr-4 mt-1 flex-shrink-0"></div>
-              <div>
-                <div className="font-bold text-blue-800 text-lg">A級 (80-89点): AI活用上級者</div>
-                <div className="text-blue-700 font-medium">AI活用先進企業・スケール段階</div>
-                <div className="text-sm text-blue-600 mt-2">
-                  • 複数部門でAI活用が本格稼働
-                  <br />• ROI実証済みのAIユースケースを拡張中
-                  <br />• データ品質とセキュリティ管理が高水準
-                  <br />• 従業員のデジタルスキルが組織全体で向上
-                </div>
+            <div className="flex items-center p-3 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border-l-4 border-blue-500">
+              <div className="w-4 h-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mr-3 flex-shrink-0"></div>
+              <div className="flex-1">
+                <div className="font-bold text-blue-800 text-sm">A級 (80-89点)</div>
+                <div className="text-xs text-blue-600">AI活用先進企業・スケール段階</div>
               </div>
             </div>
 
-            <div className="flex items-start p-4 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border-l-4 border-green-500">
-              <div className="w-6 h-6 bg-gradient-to-r from-green-500 to-green-600 rounded-full mr-4 mt-1 flex-shrink-0"></div>
-              <div>
-                <div className="font-bold text-green-800 text-lg">B級 (70-79点): AI導入中級者</div>
-                <div className="text-green-700 font-medium">AI導入推進企業・実装段階</div>
-                <div className="text-sm text-green-600 mt-2">
-                  • 特定領域でAIパイロットプロジェクトが成功
-                  <br />• データ基盤とアナリティクス能力を構築中
-                  <br />• デジタル人材の採用・育成に積極投資
-                  <br />• 業務プロセスの標準化・自動化が進行中
-                </div>
+            <div className="flex items-center p-3 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border-l-4 border-green-500">
+              <div className="w-4 h-4 bg-gradient-to-r from-green-500 to-green-600 rounded-full mr-3 flex-shrink-0"></div>
+              <div className="flex-1">
+                <div className="font-bold text-green-800 text-sm">B級 (70-79点)</div>
+                <div className="text-xs text-green-600">AI導入推進企業・実装段階</div>
               </div>
             </div>
 
-            <div className="flex items-start p-4 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg border-l-4 border-yellow-500">
-              <div className="w-6 h-6 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full mr-4 mt-1 flex-shrink-0"></div>
-              <div>
-                <div className="font-bold text-yellow-800 text-lg">C級 (60-69点): AI導入検討者</div>
-                <div className="text-yellow-700 font-medium">AI検討段階企業・探索段階</div>
-                <div className="text-sm text-yellow-600 mt-2">
-                  • AI導入の戦略検討とPoC実験を開始
-                  <br />• 基本的なデジタルツールの活用は進んでいる
-                  <br />• 一部部門でデータ活用の取り組みを実施
-                  <br />• 経営層のデジタル変革への理解が向上中
-                </div>
+            <div className="flex items-center p-3 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg border-l-4 border-yellow-500">
+              <div className="w-4 h-4 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full mr-3 flex-shrink-0"></div>
+              <div className="flex-1">
+                <div className="font-bold text-yellow-800 text-sm">C級 (60-69点)</div>
+                <div className="text-xs text-yellow-600">AI検討段階企業・探索段階</div>
               </div>
             </div>
 
-            <div className="flex items-start p-4 bg-gradient-to-r from-red-50 to-red-100 rounded-lg border-l-4 border-red-500">
-              <div className="w-6 h-6 bg-gradient-to-r from-red-400 to-red-500 rounded-full mr-4 mt-1 flex-shrink-0"></div>
-              <div>
-                <div className="font-bold text-red-800 text-lg">D級 (40-59点): AI導入初心者</div>
-                <div className="text-red-700 font-medium">デジタル化要改善企業・基礎段階</div>
-                <div className="text-sm text-red-600 mt-2">
-                  • 基本的なIT化・ペーパーレス化から着手が必要
-                  <br />• 業務プロセスが属人化・非効率な状態
-                  <br />• デジタルスキルの組織的な底上げが急務
-                  <br />• 経営層のデジタル変革への意識改革が必要
-                </div>
+            <div className="flex items-center p-3 bg-gradient-to-r from-red-50 to-red-100 rounded-lg border-l-4 border-red-500">
+              <div className="w-4 h-4 bg-gradient-to-r from-red-400 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
+              <div className="flex-1">
+                <div className="font-bold text-red-800 text-sm">D級 (40-59点)</div>
+                <div className="text-xs text-red-600">デジタル化要改善企業・基礎段階</div>
               </div>
             </div>
           </div>
@@ -239,49 +209,49 @@ export default function IndustryRanking({ industry }: IndustryRankingProps) {
             <div className="w-2 h-8 bg-gradient-to-b from-[#F9A826] to-[#E74C3C] rounded mr-3"></div>
             次のレベルへの道筋
           </h5>
-          <div className="space-y-6">
-            <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
-              <div className="flex items-center mb-4">
-                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">
+          <div className="space-y-4">
+            <div className="p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+              <div className="flex items-center mb-3">
+                <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xs mr-2">
                   目標
                 </div>
-                <h6 className="font-bold text-blue-800 text-lg">B級到達目標: 76点以上</h6>
+                <h6 className="font-bold text-blue-800 text-sm">B級到達目標: 76点以上</h6>
               </div>
-              <div className="grid md:grid-cols-1 gap-3">
-                <div className="flex items-center p-3 bg-white/70 rounded-lg">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  <span className="text-blue-700 font-medium">業務プロセスの標準化完了</span>
+              <div className="space-y-2">
+                <div className="flex items-center text-xs">
+                  <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></div>
+                  <span className="text-blue-700">業務プロセスの標準化完了</span>
                 </div>
-                <div className="flex items-center p-3 bg-white/70 rounded-lg">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  <span className="text-blue-700 font-medium">データ活用基盤の構築</span>
+                <div className="flex items-center text-xs">
+                  <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></div>
+                  <span className="text-blue-700">データ活用基盤の構築</span>
                 </div>
-                <div className="flex items-center p-3 bg-white/70 rounded-lg">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  <span className="text-blue-700 font-medium">従業員のデジタルスキル向上</span>
+                <div className="flex items-center text-xs">
+                  <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></div>
+                  <span className="text-blue-700">従業員のデジタルスキル向上</span>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-200">
-              <div className="flex items-center mb-4">
-                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">
+            <div className="p-4 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg border border-green-200">
+              <div className="flex items-center mb-3">
+                <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xs mr-2">
                   実行
                 </div>
-                <h6 className="font-bold text-green-800 text-lg">推奨アクション</h6>
+                <h6 className="font-bold text-green-800 text-sm">推奨アクション</h6>
               </div>
-              <div className="grid md:grid-cols-1 gap-3">
-                <div className="flex items-center p-3 bg-white/70 rounded-lg">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                  <span className="text-green-700 font-medium">PoC開発による効果実証</span>
+              <div className="space-y-2">
+                <div className="flex items-center text-xs">
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></div>
+                  <span className="text-green-700">PoC開発による効果実証</span>
                 </div>
-                <div className="flex items-center p-3 bg-white/70 rounded-lg">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                  <span className="text-green-700 font-medium">段階的なAI機能導入</span>
+                <div className="flex items-center text-xs">
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></div>
+                  <span className="text-green-700">段階的なAI機能導入</span>
                 </div>
-                <div className="flex items-center p-3 bg-white/70 rounded-lg">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                  <span className="text-green-700 font-medium">組織変革の準備</span>
+                <div className="flex items-center text-xs">
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></div>
+                  <span className="text-green-700">組織変革の準備</span>
                 </div>
               </div>
             </div>
