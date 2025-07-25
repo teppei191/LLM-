@@ -96,7 +96,7 @@ export default function RevenueChartWithGap({ companyProfile }: RevenueChartProp
         label: "機会損失エリア",
         data: aiImplementedData,
         borderColor: "transparent",
-        backgroundColor: "rgba(231, 76, 60, 0.1)",
+        backgroundColor: "transparent",
         fill: "+1",
         pointRadius: 0,
         pointHoverRadius: 0,
@@ -190,8 +190,16 @@ export default function RevenueChartWithGap({ companyProfile }: RevenueChartProp
     },
     elements: {
       point: {
-        hoverRadius: 8,
+        hoverRadius: 0,
+        hoverBorderWidth: 0,
       },
+      line: {
+        hoverBorderWidth: 0,
+      },
+    },
+    interaction: {
+      intersect: false,
+      mode: 'index',
     },
   }
 

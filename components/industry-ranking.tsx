@@ -10,16 +10,21 @@ const industryRankings = {
     companies: [
       { rank: 1, level: "S級", company: "トヨタ自動車", score: 95, color: "from-purple-500 to-purple-600" },
       { rank: 2, level: "A級", company: "パナソニック", score: 88, color: "from-blue-500 to-blue-600" },
-      { rank: 3, level: "B級", company: "三菱電機", score: 76, color: "from-green-500 to-green-600" },
+      { rank: 3, level: "A級", company: "ソニー", score: 85, color: "from-blue-500 to-blue-600" },
+      { rank: 4, level: "B級", company: "三菱電機", score: 76, color: "from-green-500 to-green-600" },
+      { rank: 5, level: "B級", company: "日立製作所", score: 74, color: "from-green-500 to-green-600" },
+      { rank: 6, level: "B級", company: "富士通", score: 72, color: "from-green-500 to-green-600" },
       {
-        rank: 4,
+        rank: 7,
         level: "C級",
         company: "あなたの会社",
         score: 65,
         color: "from-yellow-400 to-yellow-500",
         current: true,
       },
-      { rank: 5, level: "D級", company: "改善要製造業", score: 45, color: "from-red-400 to-red-500" },
+      { rank: 8, level: "C級", company: "中堅製造業A", score: 58, color: "from-yellow-400 to-yellow-500" },
+      { rank: 9, level: "D級", company: "中堅製造業B", score: 52, color: "from-red-400 to-red-500" },
+      { rank: 10, level: "D級", company: "改善要製造業", score: 45, color: "from-red-400 to-red-500" },
     ],
   },
   service: {
@@ -27,16 +32,21 @@ const industryRankings = {
     companies: [
       { rank: 1, level: "S級", company: "ソフトバンク", score: 94, color: "from-purple-500 to-purple-600" },
       { rank: 2, level: "A級", company: "楽天グループ", score: 87, color: "from-blue-500 to-blue-600" },
-      { rank: 3, level: "B級", company: "リクルート", score: 74, color: "from-green-500 to-green-600" },
+      { rank: 3, level: "A級", company: "NTTドコモ", score: 84, color: "from-blue-500 to-blue-600" },
+      { rank: 4, level: "B級", company: "リクルート", score: 74, color: "from-green-500 to-green-600" },
+      { rank: 5, level: "B級", company: "サイバーエージェント", score: 71, color: "from-green-500 to-green-600" },
+      { rank: 6, level: "B級", company: "DeNA", score: 69, color: "from-green-500 to-green-600" },
       {
-        rank: 4,
+        rank: 7,
         level: "C級",
         company: "あなたの会社",
         score: 63,
         color: "from-yellow-400 to-yellow-500",
         current: true,
       },
-      { rank: 5, level: "D級", company: "改善要サービス業", score: 42, color: "from-red-400 to-red-500" },
+      { rank: 8, level: "C級", company: "中堅サービス業A", score: 56, color: "from-yellow-400 to-yellow-500" },
+      { rank: 9, level: "D級", company: "中堅サービス業B", score: 50, color: "from-red-400 to-red-500" },
+      { rank: 10, level: "D級", company: "改善要サービス業", score: 42, color: "from-red-400 to-red-500" },
     ],
   },
   retail: {
@@ -44,16 +54,21 @@ const industryRankings = {
     companies: [
       { rank: 1, level: "S級", company: "セブン&アイ", score: 92, color: "from-purple-500 to-purple-600" },
       { rank: 2, level: "A級", company: "イオン", score: 85, color: "from-blue-500 to-blue-600" },
-      { rank: 3, level: "B級", company: "ファーストリテイリング", score: 73, color: "from-green-500 to-green-600" },
+      { rank: 3, level: "A級", company: "ファーストリテイリング", score: 82, color: "from-blue-500 to-blue-600" },
+      { rank: 4, level: "B級", company: "ヨドバシカメラ", score: 73, color: "from-green-500 to-green-600" },
+      { rank: 5, level: "B級", company: "ビックカメラ", score: 70, color: "from-green-500 to-green-600" },
+      { rank: 6, level: "B級", company: "ドン・キホーテ", score: 68, color: "from-green-500 to-green-600" },
       {
-        rank: 4,
+        rank: 7,
         level: "C級",
         company: "あなたの会社",
         score: 62,
         color: "from-yellow-400 to-yellow-500",
         current: true,
       },
-      { rank: 5, level: "D級", company: "改善要小売業", score: 41, color: "from-red-400 to-red-500" },
+      { rank: 8, level: "C級", company: "中堅小売業A", score: 55, color: "from-yellow-400 to-yellow-500" },
+      { rank: 9, level: "D級", company: "中堅小売業B", score: 48, color: "from-red-400 to-red-500" },
+      { rank: 10, level: "D級", company: "改善要小売業", score: 41, color: "from-red-400 to-red-500" },
     ],
   },
   construction: {
@@ -61,16 +76,21 @@ const industryRankings = {
     companies: [
       { rank: 1, level: "S級", company: "大林組", score: 89, color: "from-purple-500 to-purple-600" },
       { rank: 2, level: "A級", company: "鹿島建設", score: 82, color: "from-blue-500 to-blue-600" },
-      { rank: 3, level: "B級", company: "清水建設", score: 71, color: "from-green-500 to-green-600" },
+      { rank: 3, level: "A級", company: "清水建設", score: 80, color: "from-blue-500 to-blue-600" },
+      { rank: 4, level: "B級", company: "大成建設", score: 71, color: "from-green-500 to-green-600" },
+      { rank: 5, level: "B級", company: "竹中工務店", score: 69, color: "from-green-500 to-green-600" },
+      { rank: 6, level: "B級", company: "戸田建設", score: 67, color: "from-green-500 to-green-600" },
       {
-        rank: 4,
+        rank: 7,
         level: "C級",
         company: "あなたの会社",
         score: 60,
         color: "from-yellow-400 to-yellow-500",
         current: true,
       },
-      { rank: 5, level: "D級", company: "改善要建設業", score: 39, color: "from-red-400 to-red-500" },
+      { rank: 8, level: "C級", company: "中堅建設業A", score: 53, color: "from-yellow-400 to-yellow-500" },
+      { rank: 9, level: "D級", company: "中堅建設業B", score: 46, color: "from-red-400 to-red-500" },
+      { rank: 10, level: "D級", company: "改善要建設業", score: 39, color: "from-red-400 to-red-500" },
     ],
   },
   logistics: {
@@ -78,16 +98,21 @@ const industryRankings = {
     companies: [
       { rank: 1, level: "S級", company: "ヤマトHD", score: 91, color: "from-purple-500 to-purple-600" },
       { rank: 2, level: "A級", company: "日本郵政", score: 84, color: "from-blue-500 to-blue-600" },
-      { rank: 3, level: "B級", company: "佐川急便", score: 72, color: "from-green-500 to-green-600" },
+      { rank: 3, level: "A級", company: "佐川急便", score: 81, color: "from-blue-500 to-blue-600" },
+      { rank: 4, level: "B級", company: "日本通運", score: 72, color: "from-green-500 to-green-600" },
+      { rank: 5, level: "B級", company: "福山通運", score: 70, color: "from-green-500 to-green-600" },
+      { rank: 6, level: "B級", company: "センコー", score: 68, color: "from-green-500 to-green-600" },
       {
-        rank: 4,
+        rank: 7,
         level: "C級",
         company: "あなたの会社",
         score: 61,
         color: "from-yellow-400 to-yellow-500",
         current: true,
       },
-      { rank: 5, level: "D級", company: "改善要物流業", score: 40, color: "from-red-400 to-red-500" },
+      { rank: 8, level: "C級", company: "中堅物流業A", score: 54, color: "from-yellow-400 to-yellow-500" },
+      { rank: 9, level: "D級", company: "中堅物流業B", score: 47, color: "from-red-400 to-red-500" },
+      { rank: 10, level: "D級", company: "改善要物流業", score: 40, color: "from-red-400 to-red-500" },
     ],
   },
 }
@@ -99,20 +124,26 @@ export default function IndustryRanking({ industry }: IndustryRankingProps) {
     <div className="space-y-6">
       <div className="bg-gradient-to-r from-[#84E67F]/20 to-[#27AE60]/20 p-6 rounded-lg mb-6">
         <h4 className="text-lg font-bold text-[#333333] mb-4">{ranking.name}デジタル変革成熟度評価</h4>
-        <div className="grid md:grid-cols-5 gap-4">
+        <div className="space-y-3">
           {ranking.companies.map((item) => (
             <div
               key={item.rank}
-              className={`relative p-4 rounded-lg bg-gradient-to-br ${item.color} ${item.current ? "ring-4 ring-[#F9A826] ring-offset-2" : ""}`}
+              className={`relative flex items-center p-4 rounded-lg bg-gradient-to-r ${item.color} ${item.current ? "ring-4 ring-[#F9A826] ring-offset-2" : ""}`}
             >
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white mb-1">#{item.rank}</div>
-                <div className="text-lg font-bold text-white mb-2">{item.level}</div>
-                <div className="text-sm text-white mb-2">{item.company}</div>
-                <div className="text-xl font-bold text-white">{item.score}点</div>
+              <div className="flex items-center w-full">
+                <div className="text-3xl font-bold text-white mr-4">#{item.rank}</div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-lg font-bold text-white">{item.company}</div>
+                      <div className="text-sm text-white/90">{item.level}</div>
+                    </div>
+                    <div className="text-2xl font-bold text-white">{item.score}点</div>
+                  </div>
+                </div>
               </div>
               {item.current && (
-                <div className="absolute -top-3 -right-3 bg-[#F9A826] text-white text-xs font-bold px-2 py-1 rounded-full">
+                <div className="absolute -top-2 -right-2 bg-[#F9A826] text-white text-xs font-bold px-3 py-1 rounded-full">
                   あなたはここ！
                 </div>
               )}
@@ -133,7 +164,7 @@ export default function IndustryRanking({ industry }: IndustryRankingProps) {
             <div className="flex items-start p-4 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg border-l-4 border-purple-500">
               <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full mr-4 mt-1 flex-shrink-0"></div>
               <div>
-                <div className="font-bold text-purple-800 text-lg">S級 (90-100点): デジタル・ネイティブ</div>
+                <div className="font-bold text-purple-800 text-lg">S級 (90-100点): AI導入エキスパート</div>
                 <div className="text-purple-700 font-medium">AI戦略リーダー・業界変革者</div>
                 <div className="text-sm text-purple-600 mt-2">
                   • 全社的なAI戦略とガバナンス体制が確立
@@ -147,7 +178,7 @@ export default function IndustryRanking({ industry }: IndustryRankingProps) {
             <div className="flex items-start p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border-l-4 border-blue-500">
               <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mr-4 mt-1 flex-shrink-0"></div>
               <div>
-                <div className="font-bold text-blue-800 text-lg">A級 (80-89点): デジタル・アドバンスド</div>
+                <div className="font-bold text-blue-800 text-lg">A級 (80-89点): AI活用上級者</div>
                 <div className="text-blue-700 font-medium">AI活用先進企業・スケール段階</div>
                 <div className="text-sm text-blue-600 mt-2">
                   • 複数部門でAI活用が本格稼働
@@ -161,7 +192,7 @@ export default function IndustryRanking({ industry }: IndustryRankingProps) {
             <div className="flex items-start p-4 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border-l-4 border-green-500">
               <div className="w-6 h-6 bg-gradient-to-r from-green-500 to-green-600 rounded-full mr-4 mt-1 flex-shrink-0"></div>
               <div>
-                <div className="font-bold text-green-800 text-lg">B級 (70-79点): デジタル・プログレッシブ</div>
+                <div className="font-bold text-green-800 text-lg">B級 (70-79点): AI導入中級者</div>
                 <div className="text-green-700 font-medium">AI導入推進企業・実装段階</div>
                 <div className="text-sm text-green-600 mt-2">
                   • 特定領域でAIパイロットプロジェクトが成功
@@ -175,7 +206,7 @@ export default function IndustryRanking({ industry }: IndustryRankingProps) {
             <div className="flex items-start p-4 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg border-l-4 border-yellow-500">
               <div className="w-6 h-6 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full mr-4 mt-1 flex-shrink-0"></div>
               <div>
-                <div className="font-bold text-yellow-800 text-lg">C級 (60-69点): デジタル・エクスプローラー</div>
+                <div className="font-bold text-yellow-800 text-lg">C級 (60-69点): AI導入検討者</div>
                 <div className="text-yellow-700 font-medium">AI検討段階企業・探索段階</div>
                 <div className="text-sm text-yellow-600 mt-2">
                   • AI導入の戦略検討とPoC実験を開始
@@ -189,7 +220,7 @@ export default function IndustryRanking({ industry }: IndustryRankingProps) {
             <div className="flex items-start p-4 bg-gradient-to-r from-red-50 to-red-100 rounded-lg border-l-4 border-red-500">
               <div className="w-6 h-6 bg-gradient-to-r from-red-400 to-red-500 rounded-full mr-4 mt-1 flex-shrink-0"></div>
               <div>
-                <div className="font-bold text-red-800 text-lg">D級 (40-59点): デジタル・ビギナー</div>
+                <div className="font-bold text-red-800 text-lg">D級 (40-59点): AI導入初心者</div>
                 <div className="text-red-700 font-medium">デジタル化要改善企業・基礎段階</div>
                 <div className="text-sm text-red-600 mt-2">
                   • 基本的なIT化・ペーパーレス化から着手が必要

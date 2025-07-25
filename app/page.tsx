@@ -577,7 +577,8 @@ export default function LLMDiagnosticSystem() {
                     {question.options.map((option, i) => (
                       <div
                         key={i}
-                        className="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg hover:bg-gray-50"
+                        className="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"
+                        onClick={() => setSelectedAnswer(i.toString())}
                       >
                         <RadioGroupItem value={i.toString()} id={`option-${i}`} />
                         <Label htmlFor={`option-${i}`} className="flex-1 cursor-pointer">

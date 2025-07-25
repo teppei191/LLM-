@@ -108,14 +108,6 @@ export default function HighResRadarChart({ data, color, title }: RadarChartProp
         y -= 5
       }
 
-      // 背景を描画
-      const textMetrics = ctx.measureText(labels[i])
-      const textWidth = textMetrics.width
-      const textHeight = 16
-
-      ctx.fillStyle = "rgba(255, 255, 255, 0.95)"
-      ctx.fillRect(x - textWidth / 2 - 4, y - textHeight / 2 - 2, textWidth + 8, textHeight + 4)
-
       // テキストを描画
       ctx.fillStyle = "#1f2937"
       ctx.fillText(labels[i], x, y)
@@ -193,9 +185,6 @@ export default function HighResRadarChart({ data, color, title }: RadarChartProp
     for (let i = 1; i <= 5; i++) {
       const scaleRadius = (radius * i) / 5
       const value = (i * 20).toString()
-
-      ctx.fillStyle = "rgba(255, 255, 255, 0.9)"
-      ctx.fillRect(centerX + 5, centerY - scaleRadius - 6, 18, 12)
 
       ctx.fillStyle = "#6b7280"
       ctx.fillText(value, centerX + 7, centerY - scaleRadius)
